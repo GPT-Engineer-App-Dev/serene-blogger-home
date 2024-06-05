@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { Container, Heading, VStack, Box, Text, Image, Button } from "@chakra-ui/react";
+import { Container, Heading, VStack, Box, Text, Image, Button, useColorModeValue } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 const Blog = () => {
+  const bg = useColorModeValue("white", "gray.800");
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -11,7 +12,7 @@ const Blog = () => {
   }, []);
 
   return (
-    <Container centerContent maxW="container.md" py={8}>
+    <Container centerContent maxW="container.md" py={8} bg={bg}>
       <VStack spacing={4}>
         <Heading as="h2" size="xl">Blog</Heading>
         <Button as={Link} to="/add-post" colorScheme="teal" size="lg">Add New Post</Button>
